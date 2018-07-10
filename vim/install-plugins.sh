@@ -1,0 +1,19 @@
+#!/bin/bash
+# Check if git is installed
+if [[ ! $(which git) ]] ; then
+	echo "You need to install git";
+	exit 1;
+fi
+
+PLUGINPATH="$HOME/.vim/pack/plugins/start";
+if [[ ! -d "$PLUGINPATH" ]] ; then
+	mkdir -p $PLUGINPATH;
+fi
+for plugin in $(cat $PWD/plugins) ; do 
+	plugdir=$(echo $plugin | cut -d/ -f2)
+	cd $PLUGINPATH;
+	if [[ ! -d $HOME/.vim/pack/plugins/start/$plugdir ]] ; then
+		git clone https://github.com/${plugin}
+	fi
+done
+		
