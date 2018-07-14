@@ -10,3 +10,4 @@ vim-airline/vim-airline-themes
 ap/vim-css-color
 plasticboy/vim-markdown
 lervag/vimtex
+hashivim/vim-vagrant
