@@ -168,15 +168,19 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
   position top
-        status_command i3status -c ~/.config/i3/status
+        #status_command i3status -c ~/.config/i3/status
+        status_command sh ~/.config/i3/owns.sh
 }
 
 exec_always --no-startup-id setxkbmap us -option caps:escape
+exec_always --no-startup-id nm-applet
 exec_always --no-startup-id compton
 exec_always --no-startup-id feh --customize --bg-scale ~/Nextcloud/Wallpapers
 exec --no-startup-id xfce4-power-manager
 
 for_window [class="^.*"] border pixel 1
+
+bindsym XF86Launch1 exec "sh /home/mslt/.config/i3/scripts/toggle_keyboard.sh"
 
 smart_gaps on
 smart_borders on
