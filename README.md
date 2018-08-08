@@ -13,6 +13,7 @@ as well as system specific gentoo config files for all systems in use
 
 ### Files
 **kernel-config**  
+(Config for latest LTS Kernel [4.14])
 Config for a Lenovo Thinkpad T430 supporting:  
 
  * (only) integrated graphics
@@ -39,3 +40,5 @@ Make.conf to build a system with:
  * global vim-syntax
  * some other stuff I use.
  * bindist bs disabled
+ * ccache
+ * xorg
