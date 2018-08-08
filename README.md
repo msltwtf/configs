@@ -1,5 +1,6 @@
 # Content of this repo
 The files in this repo are dotfiles for:
+
  * i3/sway
  * vim
  * zsh
