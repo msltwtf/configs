@@ -47,4 +47,5 @@ Make.conf to build a system with:
 
 # Changelog
 | Date | Change |
+
 | 2018-08-08 | Merged to repos to one. Updated kernel-conf from 4.9 to 4.14 |
