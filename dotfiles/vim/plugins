@@ -11,3 +11,5 @@ ap/vim-css-color
 plasticboy/vim-markdown
 lervag/vimtex
 hashivim/vim-vagrant
+airblade/vim-gitgutter
+w0rp/ale
