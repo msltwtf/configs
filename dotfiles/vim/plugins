@@ -13,3 +13,4 @@ lervag/vimtex
 hashivim/vim-vagrant
 airblade/vim-gitgutter
 w0rp/ale
+tpope/vim-surround
