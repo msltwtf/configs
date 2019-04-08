@@ -105,4 +105,4 @@ alias zshrc="vim ~/.zshrc"
 alias vrc="vim ~/.vimrc"
 alias i3c="vim ~/.config/i3/config"
 alias v="vim"
-source /usr/share/zsh/site-contrib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
