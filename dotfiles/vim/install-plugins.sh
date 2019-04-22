@@ -13,7 +13,9 @@ for plugin in $(cat $PWD/plugins) ; do
 	plugdir=$(echo $plugin | cut -d/ -f2)
 	cd $PLUGINPATH;
 	if [[ ! -d $HOME/.vim/pack/plugins/start/$plugdir ]] ; then
-		git clone https://github.com/${plugin}
+		echo -n "Installing $plugin "
+		git clone https://github.com/${plugin} -q
+		echo "ok"
 	fi
 done
 		
