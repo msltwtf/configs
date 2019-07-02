@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-if [[ `which lolcat > /dev/null 2&>1` ]] ; then
+if [[ `which lolcat > /dev/null 2>&1` ]] ; then
   echo -en "###############################\n" | lolcat
   echo -en "### mslt's config installer ###\n" | lolcat
   echo -en "###############################\n" | lolcat
@@ -12,9 +12,9 @@ fi
 
 echo -n "Gathering system information"
 if [[ $UID != 0 ]]; then
-  if [[ `which sudo > /dev/null 2&>1` ]] ; then
+  if [[ `which sudo > /dev/null 2>&1` ]] ; then
     getadmin=`which sudo`
-  elif [[ `which doas > /dev/null 2&>1` ]] ; then
+  elif [[ `which doas > /dev/null 2>&1` ]] ; then
     getadmin=`which doas`
   fi
 fi
