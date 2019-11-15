@@ -110,7 +110,7 @@ source $ZSH/oh-my-zsh.sh
 #
 
 source /usr/share/zsh/site-contrib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source .aliases.sh
+source ~/.aliases.sh
 
 
 if [ -f ~/.ssh/agent.env ] ; then
@@ -125,3 +125,6 @@ else
     eval `ssh-agent | tee ~/.ssh/agent.env`
     ssh-add
 fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
