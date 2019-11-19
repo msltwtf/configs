@@ -126,5 +126,6 @@ else
     ssh-add
 fi
 
+test -z ${TMUX} && (tmux attach || tmux new-session)
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
