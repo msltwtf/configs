@@ -23,7 +23,7 @@ alias wip="cd ~/git/infrastruktur/tools/ir_checkout/installer/"
 bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
-if `which exa` ; then
+if [[ -e /usr/bin/exa ]] ; then
   alias ls=exa
 fi
 export PROMPT_DIRTRIM=2
