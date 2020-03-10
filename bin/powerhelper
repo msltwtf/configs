@@ -2,9 +2,9 @@
 action=`echo -e "Poweroff\nReboot\nSleep\nHibernate\nLock" | dmenu`
 case $action in
   Poweroff)
-    sudo poweroff;;
+    poweroff;;
   Reboot)
-    sudo reboot;;
+    reboot;;
   Sleep)
     sudo pm-suspend;;
   Hibernate)
