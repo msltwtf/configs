@@ -1,4 +1,4 @@
 #!/bin/bash
-curl http://de.wttr.in/Kreuztal?0.png -s -o /tmp/weather.png
-convert .wallpaper.org.jpg /tmp/weather.png -geometry +50+50 -composite .wallpaper.jpg
-feh --bg-scale .wallpaper.jpg
+curl http://de.wttr.in/Kreuztal.png?0 -s -o /tmp/weather.png
+convert ~/.wallpaper.org.jpg /tmp/weather.png -geometry +50+50 -composite ~/.wallpaper.jpg
+feh --bg-scale ~/.wallpaper.jpg
