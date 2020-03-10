@@ -1,9 +1,24 @@
 #!/bin/bash
-if [[ $1 == "auto" ]] ; then
-  if [[ `xrandr | grep DP2-3 | awk '{print $2}'` == "connected" ]] ; then
-    xrandr --output DP2-3 --mode 2560x1440 --output eDP1 --off;
+while getopts "a" options ; do
+  case ${options} in
+    a)
+      AUTO=true;;
+  esac
+done
+
+lidState=$(cat /proc/acpi/button/lid/LID/state | awk '{print $2}')
+extMainState=$(xrandr | grep DP2-3 | awk '{print $2}')
+
+if [[ ${AUTO} == "true" ]] ; then
+  if [[ ${extMainState} == "connected" ]] && [[ ${lidState} == "open" ]] ; then
+    xrandr --output DP2-3 --mode 2560x1440 --primary --output eDP1 --mode 1920x1080 --left-of DP2-3
+    ~/bin/weatherhelper
+  elif [[ ${extMainState} == "connected" ]] && [[ ${lidState} == "closed" ]] ; then
+    xrandr --output DP2-3 --mode 2560x1440 --primary --output eDP1 --off
+    ~/bin/weatherhelper
   else
-    xrandr --output DP2-3 --off --output eDP1 --mode 1920x1080;
+    xrandr --output eDP1 --mode 1920x1080 --output DP2-3 --off
+    ~/bin/weatherhelper
   fi
-  exit 0;
 fi
+
