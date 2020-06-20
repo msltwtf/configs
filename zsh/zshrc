@@ -114,17 +114,20 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.aliases.sh
 
 
-if [ -f ~/.ssh/agent.env ] ; then
-    . ~/.ssh/agent.env > /dev/null
-    if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
-        echo "Stale agent file found. Spawning new agent… "
-        eval `ssh-agent | tee ~/.ssh/agent.env`
-        ssh-add
-    fi
-else
-    echo "Starting ssh-agent"
-    eval `ssh-agent | tee ~/.ssh/agent.env`
-    ssh-add
-fi
+#if [ -f ~/.ssh/agent.env ] ; then
+#    . ~/.ssh/agent.env > /dev/null
+#    if ! kill -0 $SSH_AGENT_PID > /dev/null 2>&1; then
+#        echo "Stale agent file found. Spawning new agent… "
+#        eval `ssh-agent | tee ~/.ssh/agent.env`
+#        ssh-add
+#    fi
+#else
+#    echo "Starting ssh-agent"
+#    eval `ssh-agent | tee ~/.ssh/agent.env`
+#    ssh-add
+#fi
 
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
 complete -o nospace -C /usr/bin/terraform terraform
+export EDITOR=vim
