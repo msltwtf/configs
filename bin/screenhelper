@@ -7,17 +7,18 @@ while getopts "a" options ; do
 done
 
 lidState=$(cat /proc/acpi/button/lid/LID/state | awk '{print $2}')
-extMainState=$(xrandr | grep DP2-3 | awk '{print $2}')
+extMainState=$(xrandr | grep DP1-3 | awk '{print $2}')
+extSecState=$(xrandr | grep DP1-1 | awk '{print $2}')
 
 if [[ ${AUTO} == "true" ]] ; then
   if [[ ${extMainState} == "connected" ]] && [[ ${lidState} == "open" ]] ; then
-    xrandr --output DP2-3 --mode 2560x1440 --primary --output eDP1 --mode 1920x1080 --left-of DP2-3
+    xrandr --output DP1-3 --mode 2560x1440 --primary --output eDP1 --mode 1920x1080 --left-of DP1-3 --output DP1-1 --right-of DP1-3 --mode 1920x1080 --rotate right
     ~/bin/weatherhelper
   elif [[ ${extMainState} == "connected" ]] && [[ ${lidState} == "closed" ]] ; then
-    xrandr --output DP2-3 --mode 2560x1440 --primary --output eDP1 --off
+    xrandr --output DP1-3 --mode 2560x1440 --primary --output eDP1 --off --output DP1-1 --right-of DP1-3 --mode 1920x1080 --rotate right
     ~/bin/weatherhelper
   else
-    xrandr --output eDP1 --mode 1920x1080 --output DP2-3 --off
+    xrandr --output eDP1 --mode 1920x1080 --output DP1-3 --off --output DP1-1 --off
     ~/bin/weatherhelper
   fi
 fi
