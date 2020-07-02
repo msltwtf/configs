@@ -1,0 +1,16 @@
+[user]
+	name = Marius Leonhardt
+	email = info@marius-leonhardt.de
+[alias]
+	s = status
+  cl = clone
+  cm = commit
+  ps = push
+  pl = pull
+  a = add
+  d = diff
+  co = checkout
+[commit]
+	gpgsign = true
+[pull]
+	rebase = yes
