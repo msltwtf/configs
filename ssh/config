@@ -1,0 +1,6 @@
+Host *
+  ServerAliveInterval 120
+
+Host moodle-lmj
+  Hostname moodle.vmb.nrw
+  User root
