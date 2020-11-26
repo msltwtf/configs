@@ -10,11 +10,8 @@ if [[ ! -d $HOME/.oh-my-zsh/themes/powerlevel9k ]] ; then
   git clone https://github.com/powerlevel9k/powerlevel9k $HOME/.oh-my-zsh/themes/powerlevel9k/
 fi
 
-# Install zshrc
-cp $HOME/git/configs/zsh/zshrc ~/.zshrc
-
-# Install aliases
-cp .aliases.sh ~/
+ln -sf $HOME/git/configs/zsh/zshrc $HOME/.zshrc
+ln -sf $HOME/git/configs/zsh/aliases $HOME/.aliases
 
 # Ask for fonts
 echo "Should the powerline patched fonts be installed? [Y]es|[N]o"
