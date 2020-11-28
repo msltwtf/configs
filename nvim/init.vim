@@ -1,5 +1,7 @@
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
+Plug 'lepture/vim-jinja'
+Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -13,10 +15,24 @@ Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-vagrant'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
-Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 call plug#end()
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:livepreview_previewer = 'zathura'
+syntax on
+set tabstop=2
+set number
+set rnu
+set background=dark
+set t_Co=256
+filetype plugin indent on
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:.
+set list
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set omnifunc=syntaxcomplete#Complete
 
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
@@ -94,18 +110,13 @@ autocmd BufEnter * call SyncTree()
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-html',
   \ 'coc-css',
-  \ 'coc-java',
-  \ 'coc-phpls',
   \ 'coc-git',
   \ 'coc-texlab',
   \ 'coc-yaml',
-  \ 'coc-omnisharp',
   \ 'coc-markdownlint'
   \ ]
 " from readme
