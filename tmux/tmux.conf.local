@@ -136,7 +136,7 @@ tmux_conf_theme_status_attr="none"
 #     - #{hostname_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_terminal_title="#h ❐ #S ● #I #W"
+tmux_conf_theme_terminal_title="#h #S ● #I #W"
 
 # window status style
 #   - built-in variables are:
@@ -217,8 +217,8 @@ tmux_conf_theme_right_separator_sub="\uE0B3"  #   PowerlineSymbols.otf font, see
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=" ❐ #S "
-tmux_conf_theme_status_right=" #{prefix}#{pairing}#{synchronized}, #(curl -s -m 1 http://wttr.in/Kreuztal?format=3 2>/dev/null; pause 900) , %R , %d %b | #{username}#{root} | #{hostname} "
+tmux_conf_theme_status_left=" #S "
+tmux_conf_theme_status_right=" #{prefix}#{pairing}#{synchronized}, #(curl -s -m 1 http://wttr.in/Kreuztal?format=3 2>/dev/null; pause 900) , %R , %Y-%m-%d | #{username}#{root} | #{hostname} "
 
 # status left style
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
