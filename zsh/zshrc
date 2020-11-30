@@ -46,7 +46,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-if [[ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] ; then
+if [[ -e /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] ; then
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [[ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] ; then
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
   if [[ ! -e $HOME/.zsh_suppress_warnings ]] ; then
@@ -54,7 +56,9 @@ else
   fi
 fi
 
-if [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] ; then
+if [[ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] ; then
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+elif [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] ; then
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
   if [[ ! -e $HOME/.zsh_suppress_warnings ]] ; then
