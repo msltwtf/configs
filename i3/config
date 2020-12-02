@@ -2,6 +2,7 @@
 
 # base keybindings
 set $mod Mod4
+set $alt Mod1
 floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
@@ -13,6 +14,10 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+bindsym $mod+$alt+Left move workspace to output left
+bindsym $mod+$alt+Down move workspace to output down
+bindsym $mod+$alt+Up move workspace to output up
+bindsym $mod+$alt+Right move workspace to output right
 bindsym $mod+h split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
