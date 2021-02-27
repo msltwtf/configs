@@ -1,6 +1,7 @@
 [user]
   name = Marius Leonhardt
   email = info@marius-leonhardt.de
+	signingkey = info@marius-leonhardt.de
 [alias]
   s = status
   cl = clone
@@ -14,3 +15,5 @@
   gpgsign = true
 [pull]
   rebase = yes
+[init]
+	defaultBranch = master
