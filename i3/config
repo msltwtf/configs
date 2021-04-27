@@ -36,6 +36,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # Workspace names
 set $ws1 "1"
 set $ws2 "2"
@@ -100,20 +104,20 @@ font pango:Hack 8
 for_window [class="^.*"] border pixel 0
 smart_gaps on
 smart_borders on
-gaps inner 15
-gaps outer 15
+gaps inner 5
+gaps outer 5
 
 # Bar
-bar {
-  tray_output primary
-  status_command i3status -c ~/.config/i3/status
-}
+#bar {
+#  tray_output primary
+#  status_command i3status -c ~/.config/i3/status
+#}
 
 
 # Autostart
+exec --no-startup-id xrandr --output DP-2 --left-of DP-4
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c000000 --nofork
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
+exec --no-startup-id redshift
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id setxkbmap us -option caps:escape
-exec_always --no-startup-id picom
-exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale $(shuf -en1 OneDrive/Wallpapers/*)
