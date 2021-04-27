@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = spotify
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery battery2 temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -84,6 +84,11 @@ monitor = DP-2
 [bar/second]
 inherit = bar/bar
 monitor = DP-4
+
+[bar/notebook]
+inherit = bar/bar
+monitor = eDP-1
+modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth_nb battery battery2 temperature date powermenu
 
 #[modules/aur-updates]
 #
@@ -240,12 +245,12 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0f0u10
+interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid%
+label-connected = %essid% <> %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -275,6 +280,23 @@ format-disconnected =
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/eth_nb]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
 
 [module/date]
 type = internal/date
@@ -350,6 +372,12 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/battery]
 type = internal/battery
 battery = BAT0
+adapter = ADP1
+full-at = 98
+
+[module/battery2]
+type = internal/battery
+battery = BAT1
 adapter = ADP1
 full-at = 98
 
