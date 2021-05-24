@@ -15,17 +15,43 @@ Plug 'hashivim/vim-terraform'
 Plug 'hashivim/vim-vagrant'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'juliosueiras/vim-terraform-completion'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+Plug 'dense-analysis/ale'
+Plug 'pearofducks/ansible-vim'
+Plug 'APZelos/blamer.nvim'
 call plug#end()
+let g:blamer_enabled = 1
+let g:blamer_delay = 250
+let g:python3_host_prog = expand('~/.config/nvim/venv/bin/python')
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:livepreview_previewer = 'zathura'
+let g:livepreview_previewer = 'evince'
+
+let g:ale_linters = {
+      \   'python': ['flake8', 'pylint'],
+      \   'ruby': ['standardrb', 'rubocop'],
+      \   'javascript': ['eslint'],
+      \}
+
+let g:ale_fixers = {
+      \    'python': ['yapf'],
+      \}
+let g:ale_fix_on_save = 1
+
 syntax on
 set tabstop=2
 set number
 set rnu
 set background=dark
 set t_Co=256
+set cursorline
 filetype plugin indent on
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:.
 set list
@@ -33,6 +59,30 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 set omnifunc=syntaxcomplete#Complete
+let g:mkpd_auto_start = 1
+let g:mkpd_auto_close = 1
+let g:mkpd_browser = 'firefox'
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
+
+let g:mkdp_markdown_css = ''
+let g:mkdp_highlight_css = ''
+let g:mkdp_port = ''
+let g:mkdp_page_title = '「${name}」'
+let g:mkdp_filetypes = ['markdown']
+
+let g:livepreview_engine = 'xelatex'
 
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
@@ -86,7 +136,7 @@ set shiftwidth=2
 " always uses spaces instead of tab characters
 set expandtab
 
-colorscheme gruvbox
+colorscheme onedark
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
