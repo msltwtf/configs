@@ -26,7 +26,10 @@ Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 Plug 'dense-analysis/ale'
 Plug 'pearofducks/ansible-vim'
 Plug 'APZelos/blamer.nvim'
+Plug 'fatih/vim-go'
+Plug 'kiteco/vim-plugin'
 call plug#end()
+let g:kite_supported_languages = ['python', 'javascript', 'go']
 let g:blamer_enabled = 1
 let g:blamer_delay = 250
 let g:python3_host_prog = expand('~/.config/nvim/venv/bin/python')
