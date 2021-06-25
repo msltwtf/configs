@@ -7,9 +7,11 @@ if [[ ! -e /usr/bin/pip3 ]]; then
   exit 1
 fi
 
-pip3 install -U flake8 pylint yapf
-
 python3 -m venv ~/.config/nvim/venv
+
+source ~/.config/nvim/venv/bin/activate
+
+pip3 install -U flake8 pylint yapf neovim
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
