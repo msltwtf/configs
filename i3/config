@@ -126,5 +126,6 @@ exec --no-startup-id redshift
 exec --no-startup-id thunderbird
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id setxkbmap us -option caps:escape
-exec_always --no-startup-id feh --bg-scale $(shuf -en1 OneDrive/Wallpapers/*)
+exec_always --no-startup-id feh --bg-scale $(shuf -en1 Nextcloud/Wallpapers/*)
 exec --no-startup-id blueman-applet
+exec_always --no-startup-id picom
