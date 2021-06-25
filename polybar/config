@@ -46,7 +46,7 @@ border-size = 4
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
 module-margin-left = 1
 module-margin-right = 2
@@ -54,10 +54,13 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
+font-3 = FontAwesome5Free:style=Solid:size=10;4
+font-4 = FontAwesome5Free:style=Regular:size=10;4
+font-5 = FontAwesome5Brands:style=Regular:size=10;4
 
 modules-left = i3
 modules-center = spotify
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery battery2 temperature date powermenu
+modules-right = filesystem xbacklight pulseaudio-control xkeyboard memory cpu wlan eth battery battery2 temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -168,23 +171,23 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %name%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
@@ -314,6 +317,24 @@ format-underline = #0a6cf5
 
 label = %date% %time%
 
+[module/pulseaudio-control]
+type = custom/script
+tail = true
+format-underline = ${colors.cyan}
+label-padding = 2
+label-foreground = ${colors.foreground}
+
+# Icons mixed from Font Awesome 5 and Material Icons
+# You can copy-paste your options for each possible action, which is more
+# trouble-free but repetitive, or apply only the relevant ones (for example
+# --sink-blacklist is only needed for next-sink).
+exec = pulseaudio-control --icons-volume " , " --icon-muted " " --sink-nicknames-from "device.description" --sink-nickname "alsa_output.pci-0000_0a_00.1.hdmi-stereo-extra2:  Speakers" --sink-nickname "alsa_output.pci-0000_0c_00.3.analog-stereo:  Headphones" listen
+click-right = exec pavucontrol &
+click-left = pulseaudio-control togmute
+click-middle = pulseaudio-control  next-sink
+scroll-up = pulseaudio-control --volume-max 130 up
+scroll-down = pulseaudio-control --volume-max 130 down
+
 [module/pulseaudio]
 type = internal/pulseaudio
 
@@ -441,20 +462,12 @@ label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = reboot
-
-menu-2-0 = power off
-menu-2-0-exec = poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+menu-0-0 = reboot windows
+menu-0-0-exec = sudo grub-reboot 2 && reboot
+menu-0-1 = reboot
+menu-0-1-exec = reboot
+menu-0-2 = power off
+menu-0-2-exec = poweroff
 
 [settings]
 screenchange-reload = true
