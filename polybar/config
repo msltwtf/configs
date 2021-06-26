@@ -91,7 +91,7 @@ monitor = DP-4
 [bar/notebook]
 inherit = bar/bar
 monitor = eDP1
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth_nb battery battery2 temperature date powermenu
+modules-right = filesystem xbacklight pulseaudio-control xkeyboard memory cpu wlan eth_nb battery battery2 temperature date powermenu
 
 #[modules/aur-updates]
 #
