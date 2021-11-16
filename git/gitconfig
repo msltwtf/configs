@@ -16,4 +16,4 @@
 [pull]
   rebase = yes
 [init]
-  defaultBranch = master
+  defaultBranch = main
