@@ -128,8 +128,9 @@ exec --no-startup-id xrandr --output DP-2 --left-of DP-4
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c000000 --nofork
 exec --no-startup-id redshift
 exec --no-startup-id thunderbird
+exec --no-startup-id xfce4-power-manager
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id setxkbmap us -option caps:escape
-exec_always --no-startup-id feh --bg-scale $(shuf -en1 Nextcloud/Wallpapers/*)
-exec --no-startup-id blueman-applet
+exec_always --no-startup-id feh --bg-scale $(shuf -en1 OneDrive/Wallpapers/*)
 exec_always --no-startup-id picom
+exec --no-startup-id xbacklight -set 50
