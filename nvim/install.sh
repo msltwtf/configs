@@ -15,7 +15,7 @@ pip3 install -U flake8 pylint yapf neovim
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-ln -s init.vim ~/.config/nvim/init.vim
+ln -s $(pwd)/init.vim ~/.config/nvim/init.vim
 
 if [[ ! -e /usr/bin/node ]] ; then
   echo "NodeJS is not installed!"
