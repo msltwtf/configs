@@ -35,7 +35,7 @@ let g:blamer_delay = 250
 let g:python3_host_prog = expand('~/.config/nvim/venv/bin/python')
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:livepreview_previewer = 'evince'
+let g:livepreview_previewer = 'zathura'
 
 let g:ale_linters = {
       \   'python': ['flake8', 'pylint'],
