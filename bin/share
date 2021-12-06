@@ -1,0 +1,31 @@
+#!/bin/bash
+
+accountid=$(sed 's/\"//g' <<< $(aws --profile mslt sts get-caller-identity | jq '.UserId'))
+bucketid="${accountid}-share-mslt-wtf"
+date=$(date -I)
+
+tmp=$(mktemp -u)
+mkdir -p "${tmp}/${date}"
+trap 'rm -rf "${tmp}"' EXIT
+
+for src in "$@"; do
+  if test -d "${src}"; then
+    tar="$(basename ${src}).tar"
+    tar cvf "${tar}" "${src}"
+    src="${tar}"
+  fi
+  if ! test -f "${src}"; then
+    echo "Missing filename ${src}" >&2
+    continue
+  fi
+
+  chmod +r "${src}"
+
+  dst=$(basename "${src}")
+  cp -v "${src}" "${tmp}/${date}/${dst}"
+
+  if aws --profile mslt s3 cp "${tmp}/${date}/${dst}" "s3://${bucketid}/${date}/" ; then
+    echo -n "https://share.mslt.wtf/${date}/${dst}" | xsel -b
+    echo "https://share.mslt.wtf/${date}/${dst}"
+  fi
+done
