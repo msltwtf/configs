@@ -97,4 +97,4 @@ complete -o nospace -C /usr/bin/terraform terraform
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export GITHUB_TOKEN="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"
+source ~/.gh-token
