@@ -27,9 +27,7 @@ Plug 'dense-analysis/ale'
 Plug 'pearofducks/ansible-vim'
 Plug 'APZelos/blamer.nvim'
 Plug 'fatih/vim-go'
-Plug 'kiteco/vim-plugin'
 call plug#end()
-let g:kite_supported_languages = ['python', 'javascript', 'go']
 let g:blamer_enabled = 1
 let g:blamer_delay = 250
 let g:python3_host_prog = expand('~/.config/nvim/venv/bin/python')
@@ -115,7 +113,7 @@ let g:NERDTreeGitStatusWithFlags = 1
     "\ }                         
 
 
-let g:NERDTreeIgnore = ['^node_modules$']
+let g:NERDTreeIgnore = ['^node_modules$', 'venv']
 
 " vim-prettier
 "let g:prettier#quickfix_enabled = 0
@@ -143,21 +141,21 @@ colorscheme onedark
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
+"function! IsNERDTreeOpen()        
+"  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+"endfunction
+"
+"" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+"" file, and we're not in vimdiff
+"function! SyncTree()
+"  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+"    NERDTreeFind
+"    wincmd p
+"  endif
+"endfunction
 
 " Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
+"autocmd BufEnter * call SyncTree()
 
 " coc config
 let g:coc_global_extensions = [
