@@ -10,12 +10,40 @@ Plug 'joshdick/onedark.vim'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'godlygeek/tabular'
 Plug 'APZelos/blamer.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'iamcco/markdown-preview.nvim'
+Plug 'dense-analysis/ale'
+Plug 'pearofducks/ansible-vim'
+Plug 'fatih/vim-go'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 let g:blamer_enabled = 1
 let g:blamer_delay = 250
 let g:python3_host_prog = expand('~/.config/nvim/venv/bin/python')
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:NERDTreeIgnore = ['^node_modules$', 'venv']
+let g:NERDTreeGitStatusWithFlags = 1
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:coc_global_extensions = [
+  \ 'coc-pairs',
+  \ 'coc-prettier', 
+  \ 'coc-json', 
+  \ 'coc-git',
+  \ 'coc-yaml',
+  \ 'coc-markdownlint'
+  \ ]
+" from readme
+" if hidden is not set, TextEdit might fail.
+set hidden
+set updatetime=300
+
 
 syntax on
 set tabstop=2
