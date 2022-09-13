@@ -1,0 +1,21 @@
+---
+
+- name: Clone tmux config repo
+  ansible.builtin.git:
+    repo: https://github.com/gpakosz/.tmux
+    dest: "{{ lookup('env', 'HOME') }}/.tmux"
+  become: False
+
+- name: Install default tmux config
+  ansible.builtin.file:
+    state: link
+    src: "{{ lookup('env', 'HOME') }}/.tmux/.tmux.conf"
+    dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
+  become: False
+
+- name: Install overwrite config
+  ansible.builtin.file:
+    state: link
+    src: "{{ lookup('env', 'HOME') }}/git/gitlab.com/mslt/configs/tmux/tmux.conf.local"
+    dest: "{{ lookup('env', 'HOME') }}/.tmux.conf.local"
+  become: False
