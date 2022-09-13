@@ -19,7 +19,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'iamcco/markdown-preview.nvim'
 Plug 'dense-analysis/ale'
-Plug 'pearofducks/ansible-vim'
+Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.sh' }
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-fugitive'
 call plug#end()
@@ -65,3 +65,15 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 colorscheme onedark
+
+let g:ansible_unindent_after_newline = 1
+"let g:ansible_yamlKeyName = 'yamlKey'
+"let g:ansible_attribute_highlight = "a"
+"let g:ansible_name_highlight = 'd'
+"let g:ansible_extra_keywords_highlight = 1
+"let g:ansible_extra_keywords_highlight_group = 'Statement'
+"let g:ansible_normal_keywords_highlight = 'Constant'
+"let g:ansible_loop_keywords_highlight = 'Constant'
+"let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
+"let g:ansible_ftdetect_filename_regex = '\v(playbook|site|main|local|requirements)\.ya?ml$'
+"
