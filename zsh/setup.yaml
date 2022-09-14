@@ -3,23 +3,20 @@
 - name: Install ohmyzsh
   ansible.builtin.git:
     repo: https://github.com/ohmyzsh/ohmyzsh
-    dest: "{{ lookup('env', 'HOME') }}/.ohmyzsh"
-    state: present
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
   become: False
 
 - name: Install powerlevel9k
   ansible.builtin.git:
     repo: https://github.com/powerlevel9k/powerlevel9k
-    dest: "{{ lookup('env', 'HOME') }}/.ohmyzsh/custom/themes/powerlevel9k"
-    state: present
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/powerlevel9k"
   become: False
 
 - name: Install powerlevel10k theme
   ansible.builtin.git:
     repo: https://github.com/romkatv/powerlevel10k.git
-    dest: "{{ lookup('env', 'HOME') }}/.ohmyzsh/custom/themes/powerlevel10k"
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/themes/powerlevel10k"
     depth: 1
-    state: present
   become: False
 
 - name: Link configs

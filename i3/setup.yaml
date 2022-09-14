@@ -1,5 +1,17 @@
 ---
 
+- name: Check for existing i3 config dir
+  ansible.builtin.stat:
+    path: "{{ lookup('env', 'HOME') }}/.config/i3"
+  register: i3_config_dir
+  become: False
+
+- name: Delete i3 config dir
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/i3"
+    state: absent
+  when: i3_config.dir.stat.exists and i3_config_dir.stat.isdir
+
 - name: Install configs
   ansible.builtin.file:
     src: "{{ lookup('env', 'HOME') }}/git/gitlab.com/mslt/configs/i3"
