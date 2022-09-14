@@ -10,7 +10,7 @@
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/.config/i3"
     state: absent
-  when: i3_config.dir.stat.exists and i3_config_dir.stat.isdir
+  when: i3_config_dir.stat.exists and i3_config_dir.stat.isdir
 
 - name: Install configs
   ansible.builtin.file:
