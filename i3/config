@@ -83,6 +83,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 for_window [class="Spotify"] move to workspace $ws8
 assign [title="weechat"] $ws9
 assign [title="neomutt"] $ws10
+assign [class="thunderbird"] $ws10
 assign [class="Thunderbird"] $ws10
 
 bindsym $mod+Shift+c reload
