@@ -16,6 +16,6 @@
 - name: Install overwrite config
   ansible.builtin.file:
     state: link
-    src: "{{ lookup('env', 'HOME') }}/git/gitlab.com/mslt/configs/tmux/tmux.conf.local"
+    src: "{{ lookup('env', 'HOME') }}/git/github.com/mslt/configs/tmux/tmux.conf.local"
     dest: "{{ lookup('env', 'HOME') }}/.tmux.conf.local"
   become: False
