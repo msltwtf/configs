@@ -17,3 +17,4 @@ alias zshrc="vim ~/.zshrc"
 alias v=$EDITOR
 alias l='ls -l'
 alias ll='ls -la'
+alias c="code ."
