@@ -22,7 +22,7 @@
 - name: Link configs
   ansible.builtin.file:
     state: link
-    src: "{{ lookup('env', 'HOME') }}/git/github.com/mslt/configs/zsh/{{ item }}"
+    src: "{{ lookup('env', 'HOME') }}/git/github.com/msltwtf/configs/zsh/{{ item }}"
     dest: "{{ lookup('env', 'HOME') }}/.{{ item }}"
   become: False
   loop:
