@@ -54,13 +54,13 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
-font-3 = FontAwesome5Free:style=Solid:size=10;4
-font-4 = FontAwesome5Free:style=Regular:size=10;4
-font-5 = FontAwesome5Brands:style=Regular:size=10;4
+font-3 = FontAwesome6Free:style=Solid:size=10;4
+font-4 = FontAwesome6Free:style=Regular:size=10;4
+font-5 = FontAwesome6Brands:style=Regular:size=10;4
 
 modules-left = i3
 modules-center = spotify
-modules-right = filesystem xbacklight pulseaudio-control xkeyboard memory cpu wlan eth battery battery2 temperature date powermenu
+modules-right = irvpn filesystem xbacklight pulseaudio-control xkeyboard wlan eth battery battery2 temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -91,11 +91,20 @@ monitor = DP-4
 [bar/notebook]
 inherit = bar/bar
 monitor = eDP1
-modules-right = filesystem xbacklight pulseaudio-control xkeyboard memory cpu wlan eth_nb battery battery2 temperature date powermenu
+modules-right = irvpn filesystem xbacklight pulseaudio-control xkeyboard wlan eth battery battery2 date powermenu
+
+[bar/nb-external]
+inherit = bar/bar
+monitor = DP1
 
 #[modules/aur-updates]
 #
 #[module/pacman-updates]
+
+[module/irvpn]
+type = custom/script
+exec = ~/.config/polybar/vpn-status.sh
+format-underline = #f00
 
 [module/spotify]
 type = custom/script
@@ -248,12 +257,12 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlan0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid% <> %local_ip%
+label-connected = %essid% :: %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -270,7 +279,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp4s0
+interface = eth0
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -328,7 +337,7 @@ label-foreground = ${colors.foreground}
 # You can copy-paste your options for each possible action, which is more
 # trouble-free but repetitive, or apply only the relevant ones (for example
 # --sink-blacklist is only needed for next-sink).
-exec = pulseaudio-control --icons-volume " , " --icon-muted " " --node-nicknames-from "device.description" --node-nickname "alsa_output.usb-Logitech_Logi_Z407_00000000-01.analog-stereo:  Speakers" --node-nickname "alsa_output.pci-0000_0d_00.3.analog-stereo:  Headphones" listen
+exec = pulseaudio-control --icons-volume " , " --icon-muted " " --node-nicknames-from "device.description" --node-nickname "alsa_output.usb-Logitech_Logi_Z407_00000000-01.analog-stereo:  Speakers" --node-nickname "alsa_output.pci-0000_0d_00.3.analog-stereo:  Headphones" --node-nickname "alsa_output.pci-0000_00_1f.3.analog-stereo: Internal" listen
 click-right = exec pavucontrol &
 click-left = pulseaudio-control togmute
 click-middle = pulseaudio-control  next-node
@@ -462,8 +471,8 @@ label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot windows
-menu-0-0-exec = sudo grub-reboot 2 && reboot
+menu-0-0 = hibernate
+menu-0-0-exec = systemctl hibernate
 menu-0-1 = reboot
 menu-0-1-exec = reboot
 menu-0-2 = power off
