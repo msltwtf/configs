@@ -14,7 +14,7 @@
 
 - name: Install configs
   ansible.builtin.file:
-    src: "{{ lookup('env', 'HOME') }}/git/github.com/mslt/configs/i3"
+    src: "{{ lookup('env', 'HOME') }}/git/github.com/msltwtf/configs/i3"
     dest: "{{ lookup('env', 'HOME') }}/.config/i3"
     state: link
     force: True
