@@ -17,3 +17,14 @@
   rebase = yes
 [init]
   defaultBranch = main
+[push]
+  autoSetupRemote = true
+[includeIf "gitdir:~/git/gitlab.interred.local/"]
+  path = ~/.gitconfig_work
+[includeIf "gitdir:~/.password-store/"]
+  path = ~/.gitconfig_work
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
