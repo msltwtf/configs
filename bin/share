@@ -1,6 +1,6 @@
 #!/bin/bash
 
-accountid=$(sed 's/\"//g' <<< $(aws --profile mslt sts get-caller-identity | jq '.UserId'))
+accountid=$(sed 's/\"//g' <<< $(aws --profile mslt sts get-caller-identity | jq '.Account'))
 bucketid="${accountid}-share-mslt-wtf"
 date=$(date -I)
 
