@@ -82,7 +82,17 @@ local plugins = {
     opts = function ()
       return require "custom.configs.null-ls"
     end
-  }
+  },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function (_, opts)
+      require("gopher").setup(opts)
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
   --[[{
     "github/copilot.vim",
     lazy = false
