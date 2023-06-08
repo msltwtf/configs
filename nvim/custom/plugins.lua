@@ -19,7 +19,8 @@ local plugins = {
         "terraform-ls",
         "typescript-language-server",
         "bash-language-server",
-        "python-lsp-server"
+        "python-lsp-server",
+        "ltex-ls"
       }
     }
   },
@@ -93,6 +94,11 @@ local plugins = {
       vim.cmd [[silent! GoInstallDeps]]
     end,
   },
+  {
+    "lervag/vimtex",
+    ft = "tex",
+    lazy = false
+  }
   --[[{
     "github/copilot.vim",
     lazy = false
