@@ -75,6 +75,13 @@ local plugins = {
   {
     "weilbith/nvim-code-action-menu",
     lazy = false
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    ft = "go",
+    opts = function ()
+      return require "custom.configs.null-ls"
+    end
   }
   --[[{
     "github/copilot.vim",
