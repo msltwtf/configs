@@ -105,6 +105,7 @@ monitor = DP1
 type = custom/script
 exec = ~/.config/polybar/vpn-status.sh
 format-underline = #f00
+click-right = sudo systemctl stop openvpn-client@interred.service
 
 [module/spotify]
 type = custom/script
