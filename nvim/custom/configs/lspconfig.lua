@@ -23,3 +23,7 @@ lspconfig.bashls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
+lspconfig.pylsp.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})

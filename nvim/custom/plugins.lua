@@ -19,6 +19,7 @@ local plugins = {
         "terraform-ls",
         "typescript-language-server",
         "bash-language-server",
+        "python-lsp-server"
       }
     }
   },
@@ -36,7 +37,50 @@ local plugins = {
       },
       current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d %H:%M> - <summary>',
     }
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "go", "terraform"
+      }
+    }
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      git = {
+        enable = true,
+      },
+      renderer = {
+        highlight_git = true,
+        icons = {
+          show = {
+            git = true
+          }
+        }
+      },
+      view = {
+        side = "right"
+      }
+    },
+    filters = {
+      custom = {"^.git", "^node_modules"}
+    }
+  },
+  {
+    "editorconfig/editorconfig-vim",
+    lazy = false
+  },
+  {
+    "weilbith/nvim-code-action-menu",
+    lazy = false
   }
+  --[[{
+    "github/copilot.vim",
+    lazy = false
+  }
+  --]]
 }
 
 return plugins
