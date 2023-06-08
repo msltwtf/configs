@@ -6,6 +6,17 @@ local lspconfig = require "lspconfig"
 lspconfig.gopls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = {"go", "gomod", "gowork", "gotmpl"},
+  root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      }
+    }
+  }
 })
 lspconfig.ansiblels.setup({
   on_attach = on_attach,
