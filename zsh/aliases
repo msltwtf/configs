@@ -13,6 +13,9 @@ fi
 if [[ -e /usr/bin/terraform ]] ; then
   alias tf=terraform
 fi
+if [[ -e /usr/bin/bat ]] ; then
+  alias cat=bat
+fi
 alias zshrc="vim ~/.zshrc"
 alias v=$EDITOR
 alias l='ls -l'
