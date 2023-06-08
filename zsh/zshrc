@@ -55,9 +55,9 @@ plugins=(
   gitignore
 )
 
-if [[ ! ${TMUX} ]] ; then
-  tmux attach || tmux
-fi
+# if [[ ! ${TMUX} ]] ; then
+#   tmux attach || tmux
+# fi
 
 source $ZSH/oh-my-zsh.sh
 
