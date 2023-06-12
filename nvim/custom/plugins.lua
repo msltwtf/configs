@@ -150,6 +150,10 @@ local plugins = {
       require("core.utils").load_mappings("crates")
     end,
   },
+  {
+    "folke/zen-mode.nvim",
+    lazy = false,
+  },
 }
 
 return plugins
