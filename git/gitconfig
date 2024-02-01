@@ -33,3 +33,5 @@
   path = ~/.gitconfig_work
 [url "git@gitlab.interred.local:"]
   insteadOf = https://gitlab.interred.local/
+[gpg]
+	program = /opt/homebrew/bin/gpg
