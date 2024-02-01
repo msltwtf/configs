@@ -1,19 +1,21 @@
 # mslt shell aliases
 
-if [[ -e /usr/local/bin/nvim ]] ; then
+if [[ -e /opt/homebrew/bin/nvim ]] ; then
+  export EDITOR=nvim
+elif [[ -e /usr/local/bin/nvim ]] ; then
   export EDITOR=/usr/local/bin/nvim
 elif [[ -e /usr/bin/nvim ]] ; then
   export EDITOR=/usr/bin/nvim
 else
   export EDITOR=/usr/bin/vim
 fi
-if [[ -e /usr/bin/exa ]] ; then
+if [[ -e /usr/bin/exa ]] || [[ -e /opt/homebrew/bin/exa ]] ; then
   alias ls=exa
 fi
-if [[ -e /usr/bin/terraform ]] ; then
+if [[ -e /usr/bin/terraform ]] || [[ -e /opt/homebrew/bin/terraform ]]; then
   alias tf=terraform
 fi
-if [[ -e /usr/bin/bat ]] ; then
+if [[ -e /usr/bin/bat ]] || [[ -e /opt/homebrew/bin/bat ]]; then
   alias cat=bat
 fi
 alias zshrc="vim ~/.zshrc"
@@ -21,3 +23,8 @@ alias v=$EDITOR
 alias l='ls -l'
 alias ll='ls -la'
 alias c="code ."
+
+if [[ -e /opt/homebrew/bin/brew ]] ; then
+  alias b="brew"
+fi
+

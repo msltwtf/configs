@@ -65,6 +65,8 @@ if [[ -e /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] ; then
   source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 elif [[ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] ; then
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [[ -e /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] ; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
   if [[ ! -e $HOME/.zsh_suppress_warnings ]] ; then
     echo "Could not load zsh-autosuggestions from known sources"
@@ -75,6 +77,8 @@ if [[ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] ; the
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
 elif [[ -e /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] ; then
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [[ -e /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] ; then
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
   if [[ ! -e $HOME/.zsh_suppress_warnings ]] ; then
     echo "Could not load zsh-syntax-highlighting from known sources"
@@ -96,6 +100,9 @@ complete -o nospace -C /usr/bin/terraform terraform
 if [[ -e /usr/share/nvm/init-nvm.sh ]] ; then
   source /usr/share/nvm/init-nvm.sh
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
