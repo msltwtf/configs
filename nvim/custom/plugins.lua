@@ -17,6 +17,7 @@ local plugins = {
     opts = {
       ensure_installed = {
         "gopls",
+        "goimports",
         "ansible-language-server",
         "terraform-ls",
         "typescript-language-server",
