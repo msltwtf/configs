@@ -65,7 +65,7 @@ local plugins = {
         }
       },
       view = {
-        side = "right"
+        side = "left"
       }
     },
     filters = {
