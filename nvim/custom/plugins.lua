@@ -155,6 +155,10 @@ local plugins = {
     "folke/zen-mode.nvim",
     lazy = false,
   },
+  {
+    "tpope/vim-surround",
+    lazy = false
+  },
 }
 
 return plugins
