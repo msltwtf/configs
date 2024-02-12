@@ -159,6 +159,20 @@ local plugins = {
     "tpope/vim-surround",
     lazy = false
   },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require "custom.configs.noice"
+    end,
+    config = function()
+      require("noice").setup()
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  },
 }
 
 return plugins
