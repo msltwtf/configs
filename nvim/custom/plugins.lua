@@ -2,8 +2,11 @@ local cmp = require "cmp"
 
 local plugins = {
   {
-    "tpope/vim-fugitive",
-    lazy = false
+    "kdheepak/lazygit.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    lazy = false,
   },
   {
     "neovim/nvim-lspconfig",
