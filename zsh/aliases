@@ -28,3 +28,7 @@ if [[ -e /opt/homebrew/bin/brew ]] ; then
   alias b="brew"
 fi
 
+if [[ -e /opt/homebrew/bin/lazygit ]] ; then
+  alias lg="lazygit"
+fi
+
