@@ -40,6 +40,11 @@ if [[ -e /opt/homebrew/bin/lazygit ]] || [[ -e /usr/bin/lazygit ]] || [[ -e /usr
   alias lg="lazygit"
 fi
 
+# Kubernetes
+if [[ -e /opt/homebrew/bin/kubectl ]] || [[ -e /usr/bin/kubectl ]] || [[ -e /usr/local/bin/kubectl ]]; then
+  alias k="kubectl"
+fi
+
 # Terraform
 if [[ -e /opt/homebrew/bin/terraform ]] || [[ -e /usr/bin/terraform ]] || [[ -e /usr/local/bin/terraform ]]; then
   alias tf=terraform
