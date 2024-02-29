@@ -1,8 +1,0 @@
-#!/bin/bash
-if [[ $1 == "auto" ]] ; then
-  exit 0
-else
-  device=`ls -1 /sys/class/net/ | grep -v lo | grep -v vbox | dmenu`
-  action=`echo -e "start\nstop\nrestart" | dmenu`
-  sudo /etc/init.d/net.$device $action
-fi
