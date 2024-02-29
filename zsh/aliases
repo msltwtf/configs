@@ -1,34 +1,56 @@
 # mslt shell aliases
+# vim: set ft=bash:
 
-if [[ -e /opt/homebrew/bin/nvim ]] ; then
-  export EDITOR=nvim
-elif [[ -e /usr/local/bin/nvim ]] ; then
-  export EDITOR=/usr/local/bin/nvim
-elif [[ -e /usr/bin/nvim ]] ; then
-  export EDITOR=/usr/bin/nvim
-else
-  export EDITOR=/usr/bin/vim
+# Ansible
+if [[ -e /opt/homebrew/bin/ansible ]] || [[ -e /usr/bin/ansible ]] || [[ -e /usr/local/bin/ansible ]]; then
+  alias a="ansible"
+  alias ap="ansible-playbook"
+  alias av="ansible-vault"
+  alias ag="ansible-galaxy"
 fi
-if [[ -e /usr/bin/exa ]] || [[ -e /opt/homebrew/bin/exa ]] ; then
-  alias ls=exa
-fi
-if [[ -e /usr/bin/terraform ]] || [[ -e /opt/homebrew/bin/terraform ]]; then
-  alias tf=terraform
-fi
-if [[ -e /usr/bin/bat ]] || [[ -e /opt/homebrew/bin/bat ]]; then
-  alias cat=bat
-fi
-alias zshrc="vim ~/.zshrc"
-alias v=$EDITOR
-alias l='ls -l'
-alias ll='ls -la'
-alias c="code ."
 
+# Brew
 if [[ -e /opt/homebrew/bin/brew ]] ; then
   alias b="brew"
 fi
 
-if [[ -e /opt/homebrew/bin/lazygit ]] ; then
+# Editor
+if [[ -e /opt/homebrew/bin/nvim ]] || [[ -e /usr/bin/nvim ]] || [[ -e /usr/local/bin/nvim ]]; then
+  export EDITOR=nvim
+  alias vim=nvim
+  alias vi=nvim
+  alias v=nvim
+elif [[ -e /opt/homebrew/bin/vim ]] || [[ -e /usr/bin/vim ]] || [[ -e /usr/local/bin/vim ]]; then
+  export EDITOR=vim
+  alias vi=vim
+  alias v=vim
+fi
+
+# Exa
+if [[ -e /opt/homebrew/bin/exa ]] || [[ -e /usr/bin/exa ]] || [[ -e /usr/local/bin/exa ]]; then
+  alias ls=exa
+fi
+
+# Git
+if [[ -e /opt/homebrew/bin/git ]] || [[ -e /usr/bin/git ]] || [[ -e /usr/local/bin/git ]]; then
+  alias g="git"
+fi
+
+if [[ -e /opt/homebrew/bin/lazygit ]] || [[ -e /usr/bin/lazygit ]] || [[ -e /usr/local/bin/lazygit ]]; then
   alias lg="lazygit"
 fi
+
+# Terraform
+if [[ -e /opt/homebrew/bin/terraform ]] || [[ -e /usr/bin/terraform ]] || [[ -e /usr/local/bin/terraform ]]; then
+  alias tf=terraform
+
+
+# VS Code
+if [[ -e /opt/homebrew/bin/code ]] || [[ -e /usr/bin/code ]] || [[ -e /usr/local/bin/code ]]; then
+  alias c="code ."
+fi
+
+# General
+alias l='ls -l'
+alias ll='ls -la'
 
