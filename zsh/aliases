@@ -43,7 +43,7 @@ fi
 # Terraform
 if [[ -e /opt/homebrew/bin/terraform ]] || [[ -e /usr/bin/terraform ]] || [[ -e /usr/local/bin/terraform ]]; then
   alias tf=terraform
-
+fi
 
 # VS Code
 if [[ -e /opt/homebrew/bin/code ]] || [[ -e /usr/bin/code ]] || [[ -e /usr/local/bin/code ]]; then
