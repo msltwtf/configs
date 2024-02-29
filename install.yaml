@@ -1,5 +1,4 @@
 ---
 
-- ansible.builtin.import_tasks: i3/setup.yaml
 - ansible.builtin.import_tasks: tmux/setup.yaml
 - ansible.builtin.import_tasks: zsh/setup.yaml
