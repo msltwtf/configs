@@ -9,6 +9,11 @@ if [[ -e /opt/homebrew/bin/ansible ]] || [[ -e /usr/bin/ansible ]] || [[ -e /usr
   alias ag="ansible-galaxy"
 fi
 
+# Bat
+if [[ -e /opt/homebrew/bin/bat ]] || [[ -e /usr/bin/bat ]] || [[ -e /usr/local/bin/bat ]]; then
+  alias cat=bat
+fi
+
 # Brew
 if [[ -e /opt/homebrew/bin/brew ]] ; then
   alias b="brew"
