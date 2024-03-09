@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ -z $ANSIBLE_VAULT_NAME ]]; then
+  echo "Please set the ANSIBLE_VAULT_NAME environment variable"
+  exit 1
+fi
+
+op_item_name="ansible-vault-${ANSIBLE_VAULT_NAME}"
+credential=$(op item get ${op_item_name} --fields password)
+echo -n $credential
+
