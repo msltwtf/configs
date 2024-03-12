@@ -31,9 +31,14 @@ elif [[ -e /opt/homebrew/bin/vim ]] || [[ -e /usr/bin/vim ]] || [[ -e /usr/local
   alias v=vim
 fi
 
-# Exa
+# Exa --- deprecated in favor of eza
 if [[ -e /opt/homebrew/bin/exa ]] || [[ -e /usr/bin/exa ]] || [[ -e /usr/local/bin/exa ]]; then
   alias ls=exa
+fi
+
+# Eza
+if [[ -e /opt/homebrew/bin/eza ]] || [[ -e /usr/bin/eza ]] || [[ -e /usr/local/bin/eza ]]; then
+  alias ls=eza
 fi
 
 # Git
