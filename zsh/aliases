@@ -60,6 +60,12 @@ if [[ -e /opt/homebrew/bin/terraform ]] || [[ -e /usr/bin/terraform ]] || [[ -e 
   alias tf=terraform
 fi
 
+# Tmux
+if [[ -e /opt/homebrew/bin/tmux ]] || [[ -e /usr/bin/tmux ]] || [[ -e /usr/local/bin/tmux ]]; then
+  alias tmux="tmux -u"
+  alias t="tmux -u"
+fi
+
 # VS Code
 if [[ -e /opt/homebrew/bin/code ]] || [[ -e /usr/bin/code ]] || [[ -e /usr/local/bin/code ]]; then
   alias c="code ."
