@@ -93,7 +93,7 @@ else
   fi
 fi
   
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 complete -o nospace -C /usr/bin/terraform terraform
 
@@ -108,3 +108,4 @@ export NVM_DIR="$HOME/.nvm"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source ~/.gh-token
+export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
