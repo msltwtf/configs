@@ -2,7 +2,15 @@
 # vim: set ft=bash:
 
 # Ansible
-if [[ -e /opt/homebrew/bin/ansible ]] || [[ -e /usr/bin/ansible ]] || [[ -e /usr/local/bin/ansible ]]; then
+if [[ -e /opt/homebrew/bin/ansible ]] || [[ -e /usr/bin/ansible ]] || [[ -e /usr/local/bin/ansible ]] ; then
+  alias a="ansible"
+  alias ap="ansible-playbook"
+  alias av="ansible-vault"
+  alias ag="ansible-galaxy"
+fi
+
+if [[ -e $HOME/.venvs/ansible/bin/ansible ]] ; then
+  alias load-ansible='source $HOME/.venvs/ansible/bin/activate'
   alias a="ansible"
   alias ap="ansible-playbook"
   alias av="ansible-vault"
