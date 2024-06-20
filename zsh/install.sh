@@ -13,9 +13,9 @@ if [[ ! -d $HOME/.oh-my-zsh/custom/themes/powerlevel10k ]] ; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
-ln -sf $HOME/git/configs/zsh/zshrc $HOME/.zshrc
-ln -sf $HOME/git/configs/zsh/aliases $HOME/.aliases
-ln -sf $HOME/git/configs/zsh/p10k.zsh $HOME/.p10k.zsh
+ln -sf $HOME/git/github.com/msltwtf/configs/zsh/zshrc $HOME/.zshrc
+ln -sf $HOME/git/github.com/msltwtf/configs/zsh/aliases $HOME/.aliases
+ln -sf $HOME/git/github.com/msltwtf/configs/zsh/p10k.zsh $HOME/.p10k.zsh
 
 # Ask for fonts
 echo "Should the powerline patched fonts be installed? [Y]es|[N]o"
