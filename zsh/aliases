@@ -61,6 +61,7 @@ fi
 # Kubernetes
 if [[ -e /opt/homebrew/bin/kubectl ]] || [[ -e /usr/bin/kubectl ]] || [[ -e /usr/local/bin/kubectl ]]; then
   alias k="kubectl"
+  alias kconf="export KUBECONFIG=\$(find ~/.kube -type f -maxdepth 1 | fzf)"
 fi
 
 # Terraform
