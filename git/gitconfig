@@ -25,13 +25,7 @@
 [push]
   autoSetupRemote = true
 
-[includeIf "gitdir:~/git/gitlab.interred.local/"]
+[includeIf "gitdir:~/git/gitlab.open-xchange.com/"]
   path = ~/.gitconfig_work
-[includeIf "gitdir:~/git/code.irops.de/"]
-  path = ~/.gitconfig_work
-[includeIf "gitdir:~/.password-store/"]
-  path = ~/.gitconfig_work
-[url "git@gitlab.interred.local:"]
-  insteadOf = https://gitlab.interred.local/
 [gpg]
 	program = /opt/homebrew/bin/gpg
