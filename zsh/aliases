@@ -10,7 +10,7 @@ if [[ -e /opt/homebrew/bin/ansible ]] || [[ -e /usr/bin/ansible ]] || [[ -e /usr
 fi
 
 if [[ -e $HOME/.venvs/ansible/bin/ansible ]] ; then
-  alias load-ansible='source $HOME/.venvs/ansible/bin/activate'
+  alias load-ansible='source $(aem)'
   alias a="ansible"
   alias ap="ansible-playbook"
   alias av="ansible-vault"
