@@ -64,6 +64,11 @@ if [[ -e /opt/homebrew/bin/kubectl ]] || [[ -e /usr/bin/kubectl ]] || [[ -e /usr
   alias kconf="export KUBECONFIG=\$(find ~/.kube -type f -maxdepth 1 | fzf)"
 fi
 
+# Helmfile
+if [[ -e /opt/homebrew/bin/helmfile ]] || [[ -e /usr/bin/helmfile ]] || [[ -e /usr/local/bin/helmfile ]]; then
+  alias hf="helmfile"
+fi
+
 # Terraform
 if [[ -e /opt/homebrew/bin/terraform ]] || [[ -e /usr/bin/terraform ]] || [[ -e /usr/local/bin/terraform ]]; then
   alias tf=terraform
