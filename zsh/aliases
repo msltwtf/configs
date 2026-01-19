@@ -69,6 +69,10 @@ if [[ -e /opt/homebrew/bin/helmfile ]] || [[ -e /usr/bin/helmfile ]] || [[ -e /u
   alias hf="helmfile"
 fi
 
+if [[ -e /opt/homebrew/bin/op ]] || [[ -e /usr/bin/op ]] || [[ -e /usr/local/bin/op ]]; then
+  alias gh="op plugin run -- gh"
+fi
+
 # Terraform
 if [[ -e /opt/homebrew/bin/terraform ]] || [[ -e /usr/bin/terraform ]] || [[ -e /usr/local/bin/terraform ]]; then
   alias tf=terraform
