@@ -1,7 +1,7 @@
 [user]
   name = Marius Leonhardt
   email = info@marius-leonhardt.de
-  signingkey = info@marius-leonhardt.de
+  signingkey = ~/.ssh/id_ed25519.pub
 [alias]
   s = status
   cl = clone
@@ -28,4 +28,4 @@
 [includeIf "gitdir:~/git/gitlab.open-xchange.com/"]
   path = ~/.gitconfig_work
 [gpg]
-	program = /opt/homebrew/bin/gpg
+  format = ssh
