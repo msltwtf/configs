@@ -67,6 +67,8 @@ elif [[ -e /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 elif [[ -e /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] ; then
   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [[ -e /run/current-system/sw/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] ; then
+  source /run/current-system/sw/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 else
   if [[ ! -e $HOME/.zsh_suppress_warnings ]] ; then
     echo "Could not load zsh-autosuggestions from known sources"
@@ -108,5 +110,3 @@ export NVM_DIR="$HOME/.nvm"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-
-[[ -f $HOME/.config/op/plugins.sh ]] || source $HOME/.config/op/plugins.sh
