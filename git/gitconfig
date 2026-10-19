@@ -24,8 +24,7 @@
 	clean = git-lfs clean -- %f
 [push]
   autoSetupRemote = true
-
-[includeIf "gitdir:~/git/gitlab.open-xchange.com/"]
-  path = ~/.gitconfig_work
+[includeIf "gitdir:~/git/git.fbndrk.de/"]
+  path = ~/git/git.fbndrk.de/.gitconfig
 [gpg]
   format = ssh
