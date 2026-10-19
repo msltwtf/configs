@@ -1,15 +1,23 @@
 # mslt shell aliases
 # vim: set ft=bash:
 
-# Ansible
-if [[ -e /opt/homebrew/bin/ansible ]] || [[ -e /usr/bin/ansible ]] || [[ -e /usr/local/bin/ansible ]] ; then
-  alias a="ansible"
-  alias ap="ansible-playbook"
-  alias av="ansible-vault"
-  alias ag="ansible-galaxy"
-fi
+# Helper: check if command exists
+has() {
+  command -v "$1" > /dev/null 2>&1
+}
 
-if [[ -e $HOME/.venvs/ansible/bin/ansible ]] ; then
+# General Aliases
+has "bat" && alias cat=bat
+has "brew" && alias b=brew
+has "eza" && alias ls=eza
+has "git" && alias g=git
+has "lazygit" && alias lg=lazygit
+has "helmfile" && alias hf=helmfile
+has "op" && alias gh="op plugin run -- gh"
+has "terraform" && alias tf=terraform
+has "code" && alias c="code ."
+
+if [[ -d $HOME/.ansible-environments ]] ; then
   alias load-ansible='source $(aem)'
   alias a="ansible"
   alias ap="ansible-playbook"
@@ -17,76 +25,29 @@ if [[ -e $HOME/.venvs/ansible/bin/ansible ]] ; then
   alias ag="ansible-galaxy"
 fi
 
-# Bat
-if [[ -e /opt/homebrew/bin/bat ]] || [[ -e /usr/bin/bat ]] || [[ -e /usr/local/bin/bat ]]; then
-  alias cat=bat
-fi
-
-# Brew
-if [[ -e /opt/homebrew/bin/brew ]] ; then
-  alias b="brew"
-fi
-
 # Editor
-if [[ -e /opt/homebrew/bin/nvim ]] || [[ -e /usr/bin/nvim ]] || [[ -e /usr/local/bin/nvim ]]; then
+if has "nvim" ; then
   export EDITOR=nvim
   alias vim=nvim
   alias vi=nvim
   alias v=nvim
-elif [[ -e /opt/homebrew/bin/vim ]] || [[ -e /usr/bin/vim ]] || [[ -e /usr/local/bin/vim ]]; then
+elif has "vim" ; then
   export EDITOR=vim
   alias vi=vim
   alias v=vim
 fi
 
-# Exa --- deprecated in favor of eza
-if [[ -e /opt/homebrew/bin/exa ]] || [[ -e /usr/bin/exa ]] || [[ -e /usr/local/bin/exa ]]; then
-  alias ls=exa
-fi
-
-# Eza
-if [[ -e /opt/homebrew/bin/eza ]] || [[ -e /usr/bin/eza ]] || [[ -e /usr/local/bin/eza ]]; then
-  alias ls=eza
-fi
-
-# Git
-if [[ -e /opt/homebrew/bin/git ]] || [[ -e /usr/bin/git ]] || [[ -e /usr/local/bin/git ]]; then
-  alias g="git"
-fi
-
-if [[ -e /opt/homebrew/bin/lazygit ]] || [[ -e /usr/bin/lazygit ]] || [[ -e /usr/local/bin/lazygit ]]; then
-  alias lg="lazygit"
-fi
-
 # Kubernetes
-if [[ -e /opt/homebrew/bin/kubectl ]] || [[ -e /usr/bin/kubectl ]] || [[ -e /usr/local/bin/kubectl ]]; then
-  alias k="kubectl"
-  alias kconf="export KUBECONFIG=\$(find ~/.kube -type f -maxdepth 1 | fzf)"
+if has "kubectl" ; then
+  alias k=kubectl
+  kconf() {
+    export KUBECONFIG=$(find ~/.kube -maxdepth 1 -type f | fzf)
+  }
 fi
 
-# Helmfile
-if [[ -e /opt/homebrew/bin/helmfile ]] || [[ -e /usr/bin/helmfile ]] || [[ -e /usr/local/bin/helmfile ]]; then
-  alias hf="helmfile"
-fi
-
-if [[ -e /opt/homebrew/bin/op ]] || [[ -e /usr/bin/op ]] || [[ -e /usr/local/bin/op ]]; then
-  alias gh="op plugin run -- gh"
-fi
-
-# Terraform
-if [[ -e /opt/homebrew/bin/terraform ]] || [[ -e /usr/bin/terraform ]] || [[ -e /usr/local/bin/terraform ]]; then
-  alias tf=terraform
-fi
-
-# Tmux
-if [[ -e /opt/homebrew/bin/tmux ]] || [[ -e /usr/bin/tmux ]] || [[ -e /usr/local/bin/tmux ]]; then
+if has "tmux" ; then
   alias tmux="tmux -u"
   alias t="tmux -u"
-fi
-
-# VS Code
-if [[ -e /opt/homebrew/bin/code ]] || [[ -e /usr/bin/code ]] || [[ -e /usr/local/bin/code ]]; then
-  alias c="code ."
 fi
 
 # General
