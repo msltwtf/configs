@@ -1,6 +1,6 @@
 [user]
   name = Marius Leonhardt
-  email = info@marius-leonhardt.de
+  email = hello@mslt.wtf
   signingkey = ~/.ssh/id_ed25519.pub
 [alias]
   s = status
