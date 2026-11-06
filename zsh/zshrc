@@ -120,3 +120,5 @@ if [[ "$OSTYPE" == darwin* ]] ; then
 else
   export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
 fi
+
+export SOPS_AGE_KEY_CMD="op read op://Private/sops-age-homelab/password"
